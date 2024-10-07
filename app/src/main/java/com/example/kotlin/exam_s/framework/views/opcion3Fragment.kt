@@ -38,9 +38,9 @@ class opcion3Fragment : Fragment() {
         viewModel.charactersLiveData.observe(viewLifecycleOwner) { characters ->
             characters?.let {
                 // Filtrar solo los personajes femeninos
-                val femaleCharacters = it.filter { character -> character.originPlanet.name == "Tierra" }
+                val worldCharacters = it.filter { character -> character.originPlanet.name == "Tierra" }
                 // Actualizar el adaptador con la lista de personajes femeninos
-                adapter.updateCharacters(femaleCharacters)
+                adapter.updateCharacters(worldCharacters)
             }
         }
 
