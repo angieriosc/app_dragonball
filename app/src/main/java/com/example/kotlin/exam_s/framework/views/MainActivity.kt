@@ -3,6 +3,7 @@ package com.example.kotlin.exam_s.framework.views
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.kotlin.exam_s.data.network.DragonBallApiClient
 import com.example.kotlin.exam_s.databinding.ActivityMainBinding
 import com.example.kotlin.exam_s.framework.adapters.MainAdapter
 import com.example.kotlin.exam_s.framework.viewmodel.MainViewModel
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {  // No debe ser suspend
         super.onCreate(savedInstanceState)
 
         // Inflar el layout usando ViewBinding
@@ -31,11 +32,13 @@ class MainActivity : AppCompatActivity() {
         // Configura el TabLayout con ViewPager2
         TabLayoutMediator(binding.tabProfile, binding.vFragment) { tab, position ->
             tab.text = when (position) {
-                0 -> "Opción 1"
-                1 -> "Opción 2"
-                2 -> "Opción 3"
+                0 -> "Mixto"
+                1 -> "Hombres"
+                2 -> "Mujeres"
                 else -> null
             }
         }.attach()
+
+        // Hacer la llamada a la API para obtener un personaje
     }
 }
