@@ -16,26 +16,6 @@ class MainViewModel : ViewModel() {
     private val getDragonRequirement = GetDragonRequirement(repository)
 
     // LiveData para observar el personaje
-    val characterLiveData: MutableLiveData<DragonballBase?> = MutableLiveData()
-
-    fun fetchCharacterById(id: Int) {
-        Log.d("DRAGONBALLFETCH1", "Fetching character with ID: $id")
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val result: DragonballBase? = getDragonRequirement(id)
-                Log.d("DRAGONBALLFETCH2", "Fetching character with ID: $result")
-                if (result != null) {
-                    characterLiveData.postValue(result)
-                } else {
-                    postErrorDragon("Character not found")
-                }
-            } catch (e: Exception) {
-                // Manejo de excepciones de red
-                Log.e("MainViewModel", "Error fetching character: ${e.message}")
-                postErrorDragon("Error: ${e.message}")
-            }
-        }
-    }
     val charactersLiveData: MutableLiveData<List<DragonballBase>> = MutableLiveData()
 
     private val characterList = mutableListOf<DragonballBase>()
@@ -57,6 +37,7 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
     private fun postErrorDragon(errorMessage: String) {
         // Aquí puedes implementar la lógica para manejar el error
         Log.e("MainViewModel", errorMessage)

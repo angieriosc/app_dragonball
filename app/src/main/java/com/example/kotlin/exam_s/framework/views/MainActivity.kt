@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             tab.text = when (position) {
                 0 -> "Mixto"
                 1 -> "Hombres"
-                2 -> "Mujeres"
+                2 -> "Tierra"
                 else -> null
             }
         }.attach()

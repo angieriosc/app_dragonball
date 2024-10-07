@@ -7,7 +7,6 @@ class DragonBallApiClient {
     private val api: DragonballAPIService = DragonballNetworkModuleDI.createApiService()
 
     suspend fun getCharacterById(id: Int): DragonballBase? {
-        Log.d("DRAGONBALLApi", "entro api$id")
         return try {
             // Llamada al API para obtener el personaje
             api.getCharacterById(id)

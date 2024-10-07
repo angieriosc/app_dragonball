@@ -1,6 +1,7 @@
 package com.example.kotlin.exam_s.framework.adapters.viewholders
 
 import android.content.Context
+import android.util.Log
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -13,6 +14,7 @@ import com.example.kotlin.exam_s.databinding.ItemCharacterBinding
 class MainViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: DragonballBase, context: Context) {
         // Usar binding para establecer el nombre del personaje
+        Log.d("name","name${item.name}")
         binding.characterName.text = item.name
         binding.characterKi.text=item.ki
         binding.charactermaxKi.text = item.maxKi

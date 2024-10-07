@@ -11,7 +11,6 @@ object DragonballNetworkModuleDI {
     private val okHttpClient: OkHttpClient = OkHttpClient()
 
     fun createApiService(): DragonballAPIService {
-        Log.d("DRAGONBALL", "entro NETW")
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
